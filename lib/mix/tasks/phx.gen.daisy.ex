@@ -1,5 +1,5 @@
 
-defmodule Mix.Tasks.Phx.Gen.Daisy.Live do
+defmodule Mix.Tasks.Phx.Gen.Daisy do
   @shortdoc "Generates LiveView, templates, and context for a resource"
 
   @moduledoc """
@@ -90,7 +90,7 @@ defmodule Mix.Tasks.Phx.Gen.Daisy.Live do
   @doc false
   def run(args) do
     if Mix.Project.umbrella?() do
-      Mix.raise "mix phx.gen.live must be invoked from within your *_web application root directory"
+      Mix.raise "mix phx.gen.daisy must be invoked from within your *_web application root directory"
     end
 
     {context, schema} = Gen.Context.build(args)
@@ -141,7 +141,7 @@ defmodule Mix.Tasks.Phx.Gen.Daisy.Live do
 
   defp copy_new_files(%Context{} = context, binding, paths) do
     files = files_to_be_generated(context)
-    Mix.Phoenix.copy_from(paths, "priv/templates/phx.gen.daisy.live", binding, files)
+    Mix.Phoenix.copy_from(paths, "priv/templates/phx.gen.daisy", binding, files)
     if context.generate?, do: Gen.Context.copy_new_files(context, paths, binding)
 
     context
