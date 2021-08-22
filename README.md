@@ -11,9 +11,7 @@ If you add a thumbnail:string to your db model that will be shown as an image on
 ## Dark theme example
 ![](https://i.imgur.com/4VuiLU9.png)
 ![](https://i.imgur.com/QzgxcTq.png)
-![](https://i.imgur.com/5HsoZbw.png)
-![](https://i.imgur.com/NeA6ai7.png)
-
+![](https://i.imgur.com/yVJrLO5.png)
 
 
 ## Setting up Tailwind and Daisy
