@@ -1,0 +1,29 @@
+
+<h2 class="font-bold text-2xl sm:truncate">
+    <%%= @title %>
+</h2>
+
+<%%= f = form_for @changeset, "#",
+  id: "<%= schema.singular %>-form",
+  phx_target: @myself,
+  phx_change: "validate",
+  phx_submit: "save" %>
+                  <%= for {label, input, error} <- inputs, input do %>
+                    <div class="form-control">
+                        <div class="label mydaisyform">
+                            <%= label %>
+                        </div>
+                        <div class="mydaisyform">
+                            <%= input %>
+                        </div>
+                        <label class="label" >
+                            <div class="myerrortag">
+                        <%= error %>
+                            </div>
+                        </label>
+                    </div>
+                  <% end %>
+      <div class="modal-action">
+            <%%= submit "Save", phx_disable_with: "Saving...", class: "btn btn-primary" %>
+        </div>
+</form>

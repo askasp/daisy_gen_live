@@ -20,3 +20,17 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/daisy_gen_live](https://hexdocs.pm/daisy_gen_live).
 
 # daisy_gen_live
+
+.mydaisyform input{
+    @apply input input-primary
+}
+.mydaisyform label{
+    @apply label-text
+}
+.myerrortag label{
+    @apply label-text-alt
+}
+
+.mydaisyform textarea{
+    @apply textarea h-24 textarea-bordered textarea-primary
+}

@@ -1,0 +1,52 @@
+
+<div class="p-4 lg:p-10" >
+            <div class="text-xl font-bold mt-6 mb-4" >
+        <%%= gettext "Listing %{name}", name: "<%= schema.human_plural %>" %>
+            </div>
+
+<%%= if @live_action in [:new, :edit] do %>
+<%%= live_modal @socket, <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web_namespace, schema.alias) %>Live.FormComponent,
+id: @<%= schema.singular %>.id || :new,
+title: @page_title,
+action: @live_action,
+<%= schema.singular %>: @<%= schema.singular %>,
+return_to: Routes.<%= schema.route_helper %>_index_path(@socket, :index) %>
+<%% end %>
+
+<%%= for {<%= schema.singular %>, counter} <- Enum.with_index(@<%= schema.plural %>) do %>
+<div class="card lg:card-side bordered my-4">
+    <%%= if Map.get(<%= schema.singular %>, :thumbnail) do %>
+    <img src="<%%= <%=schema.singular%>.thumbnail%> %>" class="lg:w-1/3" />
+    <%% end %>
+<div class="card-body">
+    <%= for {k, _} <- schema.attrs do %>
+    <b class="text-sm whitespace-nowrap "> <%= Phoenix.Naming.humanize(Atom.to_string(k)) %>: </b>
+    <p>
+        <%%= <%= schema.singular %>.<%= k %> %>
+    </p>
+    <% end %>
+    <div class="card-actions">
+        <%%= live_redirect to: Routes.<%= schema.route_helper %>_show_path(@socket, :show, <%= schema.singular %>)  do %>
+        <button class="btn btn-info"> Show </button>
+        <%% end %>
+
+        <%%= live_patch to: Routes.<%= schema.route_helper %>_index_path(@socket, :edit, <%= schema.singular %>) do %>
+        <button class="btn btn-warning">Edit </button>
+        <%% end %>
+
+        <%%= link to: "#", phx_click: "delete", phx_value_id: <%= schema.singular %>.id, data: [confirm: "Are you sure?"] do %>
+        <button class="btn btn-error">Delete </button>
+        <%% end %>
+    </div>
+</div>
+
+</div>
+    <%% end %>
+
+    <div class="py-2 align-middle inline-block min-w-full ">
+        <%%= live_patch to: Routes.<%= schema.route_helper %>_index_path(@socket, :new)  do %>
+        <button class="btn btn-primary"> <%%= gettext "New %{name}", name: "<%= schema.human_singular %>" %> </button>
+        <%% end %>
+    </div>
+
+</div>
