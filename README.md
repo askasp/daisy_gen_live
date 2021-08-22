@@ -5,11 +5,20 @@ Daisy gen live is a scaffold generator for phoenix liveview that uses daisy/tail
 ```
 	phx.gen.daisy Accounts User users age:integer name:string
 ```
+set the theme in with <html data-theme="dark/light/whatever" /> check https://daisyui.com/docs/default-themes.
+If you add a thumbnail:string to your db model that will be shown as an image on the card
+
+## Dark theme example
+[Imgur](https://i.imgur.com/4VuiLU9.png)
+[Imgur](https://i.imgur.com/QzgxcTq.png)
+[Imgur](https://i.imgur.com/QzgxcTq.png)
+[Imgur](https://i.imgur.com/NeA6ai7.png)
+
 
 
 ## Setting up Tailwind and Daisy
 ```
-cd assets && npm install tailwindcss postcss postcss-loader autoprefixer
+cd assets && npm install tailwindcss postcss postcss-loader@4.2 autoprefixer
 
 ```
 create assets/postcss.config.js and add
