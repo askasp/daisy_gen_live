@@ -9,10 +9,10 @@ set the theme in with <html data-theme="dark/light/whatever" /> check https://da
 If you add a thumbnail:string to your db model that will be shown as an image on the card
 
 ## Dark theme example
-[Imgur](https://i.imgur.com/4VuiLU9.png)
-[Imgur](https://i.imgur.com/QzgxcTq.png)
-[Imgur](https://i.imgur.com/QzgxcTq.png)
-[Imgur](https://i.imgur.com/NeA6ai7.png)
+![](https://i.imgur.com/4VuiLU9.png)
+![](https://i.imgur.com/QzgxcTq.png)
+![](https://i.imgur.com/QzgxcTq.png)
+![](https://i.imgur.com/NeA6ai7.png)
 
 
 
